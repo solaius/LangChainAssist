@@ -1,0 +1,28 @@
+/* components/Footer/footer.css */
+
+.app-footer {
+    background-color: black;
+    color: white;
+    font-size: 0.8em;
+    padding: 10px 0; /* Padding to add space for the content */
+    text-align: center;
+    width: 100%;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px; /* Add horizontal padding */
+  }
+  
+  .footer-links a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+  }
+  
+  .footer-links a:hover {
+    text-decoration: underline;
+  }
+  

@@ -1,0 +1,10 @@
+/* components/ThemeSwitch/theme_switch.css */
+
+/* Style the switch label based on the theme */
+.custom-switch.light .pf-c-switch__label {
+    color: #000; /* Black for light theme */
+}
+
+.custom-switch.dark .pf-c-switch__label {
+    color: #fff; /* White for dark theme */
+}

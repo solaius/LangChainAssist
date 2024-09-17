@@ -1,0 +1,83 @@
+/* app.css */
+
+/* Ensure the app-container takes the full viewport height */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* Apply theme to the container directly */
+.app-container {
+  min-height: 100vh;
+  padding: 0px;
+  font-family: Arial, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Main section for the menu */
+.app-main {
+  padding: 0px;
+}
+
+.content-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.left-section {
+  display: inline-block;
+  width: 70%; /* Adjust as needed */
+}
+
+.right-section {
+  width: 28%; /* Adjust as needed */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.right-item {
+  background-color: var(--background-color);
+  padding: 10px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Define CSS variables for light and dark themes */
+html.light-theme {
+  --background-color: #ededed;
+  --text-color: #000;
+  --accordion-bg-color: #fff;
+  --accordion-hover-bg-color: #f0f0f0;
+  --accordion-expanded-bg-color: #e6e6e6;
+  --accordion-content-bg-color: #f9f9f9;
+  --accordion-border-color: #ccc;
+  --primary-text-color: #000; /* Primary text color for light theme */
+}
+
+html.dark-theme {
+  --background-color: #333;
+  --text-color: #fff;
+  --accordion-bg-color: #444;
+  --accordion-hover-bg-color: #555;
+  --accordion-expanded-bg-color: #555;
+  --accordion-content-bg-color: #3b3b3b;
+  --accordion-border-color: #555;
+  --primary-text-color: #fff; /* Primary text color for dark theme */
+}
+
+/* Additional style adjustments */
+h2 {
+  margin: 0 0 10px 0;
+}
+
+p {
+  margin: 5px 0;
+}
+
+/* Global box-sizing to include padding and border in width/height calculations */
+*, *:before, *:after {
+  box-sizing: border-box;
+}

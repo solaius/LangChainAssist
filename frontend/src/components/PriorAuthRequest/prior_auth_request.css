@@ -1,0 +1,70 @@
+/* components/PriorAuthRequest/prior_auth_request.css */
+
+/* Styling for the PriorAuthRequest component */
+.prior-auth-request {
+    background-color: var(--accordion-content-bg-color);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    color: var(--primary-text-color); /* Ensure main text color is applied */
+}
+
+.prior-auth-title {
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    color: var(--text-color); /* Heading color */
+}
+
+.auth-section {
+    margin-bottom: 20px;
+}
+
+.auth-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.auth-column {
+    flex: 1;
+    min-width: 200px;
+}
+
+.auth-column p {
+    margin: 5px 0;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+ul li {
+    margin: 5px 0;
+}
+
+/* Accordion-specific styles */
+.pf-c-accordion__toggle {
+    font-weight: bold;
+    background-color: var(--accordion-bg-color);
+    color: var(--text-color);
+    padding: 10px 15px;
+    border: 1px solid var(--accordion-border-color);
+    cursor: pointer;
+}
+
+.pf-c-accordion__toggle:hover {
+    background-color: var(--accordion-hover-bg-color);
+}
+
+.pf-c-accordion__expanded .pf-c-accordion__toggle {
+    background-color: var(--accordion-expanded-bg-color);
+}
+
+.pf-c-accordion__content {
+    padding: 15px;
+    background-color: var(--accordion-content-bg-color);
+    border-left: 1px solid var(--accordion-border-color);
+    border-right: 1px solid var(--accordion-border-color);
+    border-bottom: 1px solid var(--accordion-border-color);
+}

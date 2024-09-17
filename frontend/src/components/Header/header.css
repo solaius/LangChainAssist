@@ -1,0 +1,32 @@
+/* components/Header/header.css */
+
+/* Header section containing the title and theme switch */
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  /* Container for logo and title */
+  .logo-title-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Logo styling */
+  .header-logo {
+    width: 47.5px; /* 50% of 95px */
+    height: 47.5px; /* 50% of 95px */
+    margin-right: 10px; /* Space between logo and title */
+  }
+  
+  /* Page title styling */
+  .page-title {
+    font-size: 2em;
+    font-weight: bold;
+    margin: 0;
+  }
+  
