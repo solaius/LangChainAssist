@@ -1,10 +1,39 @@
 /* components/ThemeSwitch/theme_switch.css */
 
-/* Style the switch label based on the theme */
-.custom-switch.light .pf-c-switch__label {
-    color: #000; /* Black for light theme */
+/* Container for the switch and label */
+.theme-switch-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Add spacing between label and switch */
 }
 
-.custom-switch.dark .pf-c-switch__label {
-    color: #fff; /* White for dark theme */
+/* Style the switch label based on the theme */
+.switch-label {
+    font-weight: bold;
+}
+
+/* Custom switch styles */
+.custom-switch .pf-c-switch__toggle {
+    background-color: var(--background-color) !important; /* Adjust background */
+}
+
+.custom-switch .pf-c-switch__toggle::before {
+    content: '\2714'; /* Unicode for check mark */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    width: 100%;
+    height: 100%;
+    font-size: 1em;
+    transition: opacity 0.2s;
+    opacity: 0; /* Hide check mark by default */
+}
+
+.custom-switch.pf-m-checked .pf-c-switch__toggle::before {
+    opacity: 1; /* Show check mark when switch is on */
+}
+
+.custom-switch .pf-c-switch__toggle::after {
+    content: ''; /* Remove default dot */
 }

@@ -13,14 +13,15 @@ const ThemeSwitch = () => {
   };
 
   return (
-    <Switch
-      id="dark-mode-switch"
-      label="Dark Mode"
-      labelOff="Light Mode"
-      isChecked={isDarkMode}
-      onChange={handleToggle}
-      className={`custom-switch ${isDarkMode ? 'dark' : 'light'}`} // Apply theme classes
-    />
+    <div className={`theme-switch-container ${isDarkMode ? 'dark' : 'light'}`}>
+      <span className="switch-label">{isDarkMode ? 'Dark Mode' : 'Light Mode'}</span>
+      <Switch
+        id="dark-mode-switch"
+        isChecked={isDarkMode}
+        onChange={handleToggle}
+        className="custom-switch"
+      />
+    </div>
   );
 };
 
