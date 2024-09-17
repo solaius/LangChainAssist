@@ -47,25 +47,25 @@ html, body {
 
 /* Define CSS variables for light and dark themes */
 html.light-theme {
-  --background-color: #ededed;
-  --text-color: #000;
-  --accordion-bg-color: #fff;
-  --accordion-hover-bg-color: #f0f0f0;
-  --accordion-expanded-bg-color: #e6e6e6;
-  --accordion-content-bg-color: #f9f9f9;
-  --accordion-border-color: #ccc;
-  --primary-text-color: #000; /* Primary text color for light theme */
+    --background-color: #ededed;
+    --text-color: #000;
+    --accordion-bg-color: #fff;
+    --accordion-hover-bg-color: #f0f0f0;
+    --accordion-expanded-bg-color: #e6e6e6;
+    --accordion-content-bg-color: #f9f9f9;
+    --accordion-border-color: #ccc;
+    --primary-text-color: #000; /* Primary text color for light theme */
 }
 
 html.dark-theme {
-  --background-color: #333;
-  --text-color: #fff;
-  --accordion-bg-color: #444;
-  --accordion-hover-bg-color: #555;
-  --accordion-expanded-bg-color: #555;
-  --accordion-content-bg-color: #3b3b3b;
-  --accordion-border-color: #555;
-  --primary-text-color: #fff; /* Primary text color for dark theme */
+    --background-color: #333;
+    --text-color: #fff;
+    --accordion-bg-color: #444;
+    --accordion-hover-bg-color: #555;
+    --accordion-expanded-bg-color: #555;
+    --accordion-content-bg-color: #3b3b3b;
+    --accordion-border-color: #555;
+    --primary-text-color: #fff; /* Primary text color for dark theme */
 }
 
 /* Additional style adjustments */

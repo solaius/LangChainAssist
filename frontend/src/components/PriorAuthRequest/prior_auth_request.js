@@ -18,6 +18,7 @@ const PriorAuthRequest = () => {
           onClick={onToggle}
           isExpanded={isExpanded}
           id="toggle-1"
+          className="custom-accordion-toggle"
         >
           Prior Authorization Request
         </AccordionToggle>
@@ -28,7 +29,7 @@ const PriorAuthRequest = () => {
               <h3>Patient Information:</h3>
               <div className="auth-content">
                 <div className="auth-column">
-                  <p><strong>Name:</strong> [Patient Name]</p>
+                  <p><strong>Name:</strong> Sarah Burnside</p>
                   <p><strong>Date of Birth:</strong> January 1, 1926</p>
                   <p><strong>Insurance:</strong> Anthem Blue Cross</p>
                 </div>

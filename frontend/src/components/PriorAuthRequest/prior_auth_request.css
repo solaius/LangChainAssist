@@ -7,13 +7,13 @@
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin: 20px 0;
-    color: var(--primary-text-color); /* Ensure main text color is applied */
+    color: var(--primary-text-color);
 }
 
 .prior-auth-title {
     margin-bottom: 15px;
     font-size: 1.5em;
-    color: var(--text-color); /* Heading color */
+    color: var(--text-color);
 }
 
 .auth-section {
@@ -44,26 +44,32 @@ ul li {
 }
 
 /* Accordion-specific styles */
-.pf-c-accordion__toggle {
+.custom-accordion-toggle {
     font-weight: bold;
     background-color: var(--accordion-bg-color);
-    color: var(--text-color);
+    color: var(--primary-text-color);
     padding: 10px 15px;
     border: 1px solid var(--accordion-border-color);
     cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.pf-c-accordion__toggle:hover {
+.custom-accordion-toggle:hover {
     background-color: var(--accordion-hover-bg-color);
+    color: var(--text-color); /* Ensure text color changes on hover */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Add a subtle shadow on hover */
 }
 
-.pf-c-accordion__expanded .pf-c-accordion__toggle {
+.custom-accordion-toggle.pf-m-expanded {
     background-color: var(--accordion-expanded-bg-color);
+    color: var(--text-color); /* Change text color for expanded state */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Stronger shadow for expanded state */
 }
 
 .pf-c-accordion__content {
     padding: 15px;
     background-color: var(--accordion-content-bg-color);
+    color: var(--primary-text-color);
     border-left: 1px solid var(--accordion-border-color);
     border-right: 1px solid var(--accordion-border-color);
     border-bottom: 1px solid var(--accordion-border-color);
