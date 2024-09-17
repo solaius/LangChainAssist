@@ -1,0 +1,110 @@
+{
+    "coverage_summary": {
+      "diagnosis": [
+        {
+          "description": "Breast cancer with brain metastasis",
+          "codes": ["1985", "19889"]
+        },
+        {
+          "description": "Malignant neoplasm of breast, in situ",
+          "codes": ["1749"]
+        },
+        {
+          "description": "Malignant neoplasm of breast, operable",
+          "codes": ["1983"]
+        },
+        {
+          "description": "Malignant neoplasm of breast, recurrence",
+          "codes": ["4019"]
+        },
+        {
+          "description": "Other late effects of cerebrovascular disease",
+          "codes": ["438.89"]
+        },
+        {
+          "description": "Complete AV block",
+          "codes": ["426.3"]
+        }
+      ],
+      "procedures": [
+        {
+          "description": "Mammography, diagnostic",
+          "code": "212"
+        },
+        {
+          "description": "Stereotactic biopsy, breast",
+          "code": "8332"
+        },
+        {
+          "description": "Mastectomy, simple",
+          "code": "3832"
+        },
+        {
+          "description": "Radiation therapy, external, to breast",
+          "code": "32"
+        },
+        {
+          "description": "Chemotherapy, single agent",
+          "code": "966"
+        },
+        {
+          "description": "Chemotherapy, combination therapy",
+          "code": "159"
+        }
+      ],
+      "eligibility_for_coverage": [
+        {
+          "procedure": "Mammography, diagnostic",
+          "code": "212",
+          "coverage": "Preventive care service, covered at no cost."
+        },
+        {
+          "procedure": "Stereotactic biopsy, breast",
+          "code": "8332",
+          "coverage": "Diagnostic procedure, should be covered, specific coverage may depend on the policy's terms."
+        },
+        {
+          "procedure": "Mastectomy, simple",
+          "code": "3832",
+          "coverage": "Surgical procedure for breast cancer, may require prior authorization."
+        },
+        {
+          "procedure": "Radiation therapy, external, to breast",
+          "code": "32",
+          "coverage": "Treatment for cancer, may require prior authorization."
+        },
+        {
+          "procedure": "Chemotherapy, single agent",
+          "code": "966",
+          "coverage": "Treatment for cancer, may require prior authorization."
+        },
+        {
+          "procedure": "Chemotherapy, combination therapy",
+          "code": "159",
+          "coverage": "Treatment for cancer, may require prior authorization."
+        }
+      ],
+      "deductibles_and_cost_sharing": {
+        "information": "The policy document does not provide specific information about the deductibles and cost-sharing for the procedures mentioned. However, the policy generally covers 100% of costs for in-network providers after the deductible is met."
+      },
+      "medical_necessity_and_documentation": {
+        "information": "The patient's diagnosis and procedures are consistent with breast cancer treatment. The healthcare provider should provide necessary documentation, including diagnosis, treatment plans, and referrals, to support the prior authorization requests."
+      },
+      "policy_specific_limitations_and_exclusions": {
+        "information": "The policy does not provide specific limitations or exclusions for the mentioned procedures. However, the patient should be aware of potential frequency limits on services, non-covered services, or alternative treatments covered under the plan."
+      },
+      "prior_authorization_process_guidance": {
+        "information": "The healthcare provider should submit the prior authorization requests with the required documentation, forms, and contact points for processing. The timeline for expected decisions and potential delays or additional reviews may vary."
+      },
+      "denials_and_appeals_information": {
+        "information": "If a prior authorization request is denied, the reasons will be based on policy terms, and guidance on the appeal process will be provided. The healthcare provider or patient should follow the specific steps to appeal a denial."
+      },
+      "compliance_and_regulatory_considerations": {
+        "information": "All decisions should align with applicable regulations and legal requirements governing healthcare coverage and prior authorization processes."
+      },
+      "referral_to_internal_resources": {
+        "information": "If additional support is needed, the team can refer to senior decision-makers or legal and compliance teams for further review of the authorization request."
+      }
+    }
+  }
+  

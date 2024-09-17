@@ -1,0 +1,34 @@
+{
+  "patient_summary": {
+    "SubjectID": 3419,
+    "Date_of_Birth": "January 1, 1926",
+    "Date_of_Death": "Not provided",
+    "Admission_ID": 194653,
+    "Admission_Type": "Emergency",
+    "Admission_Location": "Transfer from Hospital/Extramural",
+    "Insurance": "Medicare",
+    "Diagnosis": "Breast cancer with brain metastasis",
+    "Admission_Date": "March 5, 1992",
+    "Discharge_Date": "March 16, 1992",
+    "ICD_9_Codes_and_Descriptions": {
+      "438.89": "Other late effects of cerebrovascular disease",
+      "426.3": "Complete AV block",
+      "198.5": "Secondary malignant neoplasm of large intestine and rectum",
+      "198.89": "Secondary malignant neoplasm of other specified sites",
+      "174.9": "Malignant neoplasm of breast (female), unspecified",
+      "198.3": "Secondary malignant neoplasm of brain and spinal cord",
+      "V45.71": "Acquired absence of breast",
+      "401.9": "Unspecified essential hypertension",
+      "250.00": "Diabetes mellitus without mention of complication, type II or unspecified type, not stated as uncontrolled",
+      "278.00": "Obesity, unspecified"
+    },
+    "Procedure_ICD_9_Codes_and_Descriptions": {
+      "21.2": "Mammography, diagnostic",
+      "83.32": "Stereotactic biopsy of breast",
+      "38.93": "Mastectomy, simple",
+      "92.3": "Radiation therapy, external, to breast",
+      "99.66": "Chemotherapy, single agent",
+      "99.15": "Chemotherapy, combination therapy"
+    }
+  }
+}

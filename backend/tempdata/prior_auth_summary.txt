@@ -1,0 +1,68 @@
+### Prior Authorization Request Report: External Beam Radiation Therapy
+
+#### **Patient Information:**
+- **Name:** [Patient Name]
+- **Date of Birth:** January 1, 1926
+- **Insurance:** Anthem Blue Cross
+- **Subject ID:** 3419
+- **Admission ID:** 194653
+
+#### **Provider Information:**
+- **Requesting Physician:** Dr. [Physician Name]
+- **Facility Name:** [Hospital/Clinic Name]
+- **Contact Information:** [Phone, Fax, Email]
+
+#### **Diagnosis Information:**
+- **Primary Diagnosis:** Secondary Malignant Neoplasm of Brain (ICD-9: 198.3)
+- **Secondary Diagnosis:** Malignant Neoplasm of Breast, Unspecified (ICD-9: 174.9)
+- **Other Relevant Diagnoses:**
+  - Hypertension (ICD-9: 401.9)
+  - Complete AV Block (ICD-9: 426.3)
+
+#### **Procedure Information:**
+- **Procedure:** External Beam Radiation Therapy (ICD-9: 92.29)
+- **Start Date:** [Date]
+- **Frequency/Duration:** [Frequency] sessions over [Duration]
+
+#### **Medical Necessity Justification:**
+The patient has a confirmed diagnosis of brain metastasis secondary to breast cancer, necessitating the use of External Beam Radiation Therapy (EBRT). This procedure is critical for:
+- Managing progression of brain metastasis
+- Alleviating neurological symptoms, including seizures and cognitive impairment
+- Potentially improving the patient's quality of life
+
+**Clinical Evidence:**
+- The use of EBRT is a standard treatment protocol for brain metastasis in advanced-stage cancer.
+- The patient’s condition, as indicated by imaging and physician's notes, supports the need for immediate intervention to prevent further neurological decline.
+- Without this intervention, the patient's prognosis is poor, with expected rapid deterioration and increased risk of severe complications.
+
+#### **Policy Coverage and Compliance:**
+- **Diagnosis Coverage:** 
+  - The policy includes coverage for conditions related to secondary malignant neoplasm of the brain (ICD-9: 198.3).
+  - Additional coverage exists for the patient's related diagnosis of breast cancer with metastasis (ICD-9: 174.9).
+  
+- **Procedure Coverage:** 
+  - External Beam Radiation Therapy for brain metastasis falls within the policy guidelines as a necessary treatment for cancer.
+  - The policy indicates that radiation therapy may require prior authorization, which is being requested with this report.
+
+#### **Policy-Specific Guidance:**
+- **Eligibility for Coverage:** 
+  - The policy typically covers necessary treatments after the deductible is met, with 100% coverage for in-network providers.
+  - This treatment aligns with standard care practices for the patient's diagnosis.
+  
+- **Medical Necessity and Documentation:**
+  - Required documentation, including physician notes, recent imaging studies (CT/MRI), and a detailed treatment plan, are provided to substantiate the medical necessity of the procedure.
+  
+- **Compliance and Regulatory Considerations:**
+  - This request complies with healthcare regulations and legal requirements for cancer treatment authorization.
+  - All relevant clinical data and policy criteria have been reviewed to ensure a comprehensive and compliant submission.
+
+#### **Supporting Documentation:**
+- **Physician’s Note:** Detailed summary of patient’s clinical condition, treatment history, and current health status.
+- **Recent Imaging (CT/MRI):** Imaging studies showing evidence of brain metastasis, supporting the need for radiation therapy.
+- **Treatment Plan:** Proposed course of EBRT, including frequency and duration, tailored to the patient’s specific medical condition.
+
+#### **Recommendation:**
+Based on the patient's advanced-stage cancer diagnosis, evidence of brain metastasis, and alignment with standard care protocols, prior authorization for External Beam Radiation Therapy is strongly recommended. The requested treatment is essential for managing the patient's symptoms and slowing disease progression. 
+
+#### **Contact for Additional Information:**
+If further details or clarification are required, please contact [Requesting Physician's Office] at [Phone] or [Email].

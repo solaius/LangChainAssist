@@ -1,0 +1,21 @@
+# E:/code/LangAssist/.gitignore
+
+# Ignore virtual environments
+env/
+backend/env/
+
+# Ignore environment variables
+.env
+backend/.env
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+
+# Ignore Node.js modules
+frontend/node_modules/
+
+# Ignore other temporary files
+*.log
+
+.venv/
