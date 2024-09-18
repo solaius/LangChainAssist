@@ -1,7 +1,7 @@
-/* components/PriorAuthRequest/prior_auth_request.css */
+/* components/PatientData/patient_data.css */
 
-/* Styling for the PriorAuthRequest component */
-.prior-auth-request {
+/* Styling for the PatientData component */
+.patient-data {
     background-color: var(--accordion-content-bg-color);
     padding: 10px;
     border-radius: 5px;
@@ -10,36 +10,54 @@
     color: var(--primary-text-color);
 }
 
-.prior-auth-title {
-    margin-bottom: 15px;
+.data-title {
+    margin-bottom: 10px;
     font-size: 1.5em;
     color: var(--text-color);
 }
 
-.auth-section {
-    margin-bottom: 20px;
+.data-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.auth-content {
+.data-row {
     display: flex;
-    flex-wrap: wrap;
+    justify-content: space-between;
     gap: 20px;
 }
 
-.auth-column {
+.data-field {
     flex: 1;
-    min-width: 200px;
 }
 
-.auth-column p {
-    margin: 5px 0;
+/* Admission Summary styling */
+.admission-summary {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
-ul {
+.admission-summary p {
+    margin: 10px 0;
+}
+
+/* Diagnoses and Procedures columns */
+.data-columns {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.data-column {
+    flex: 1;
+}
+
+.data-column ul {
     padding-left: 20px;
 }
 
-ul li {
+.data-column li {
     margin: 5px 0;
 }
 
@@ -57,7 +75,7 @@ ul li {
 .custom-accordion-toggle:hover {
     background-color: var(--accordion-hover-bg-color);
     color: var(--text-color); /* Ensure text color changes on hover */
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Add a subtle shadow on hover */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .custom-accordion-toggle.pf-m-expanded {

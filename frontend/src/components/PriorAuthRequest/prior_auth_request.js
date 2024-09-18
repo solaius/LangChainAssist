@@ -44,7 +44,7 @@ const PriorAuthRequest = () => {
               <h3>Provider Information:</h3>
               <div className="auth-content">
                 <div className="auth-column">
-                  <p><strong>Requesting Physician:</strong> Dr. [Physician Name]</p>
+                  <p><strong>Requesting Physician:</strong> Dr. Theodore Buck Barnswoggle III</p>
                   <p><strong>Facility Name:</strong> [Hospital/Clinic Name]</p>
                 </div>
                 <div className="auth-column">

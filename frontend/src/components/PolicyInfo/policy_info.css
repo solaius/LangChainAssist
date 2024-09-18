@@ -1,46 +1,23 @@
-/* components/PriorAuthRequest/prior_auth_request.css */
+/* components/PolicyInfo/policy_info.css */
 
-/* Styling for the PriorAuthRequest component */
-.prior-auth-request {
+/* Container for the PolicyInfo component */
+.policy-info-container {
     background-color: var(--accordion-content-bg-color);
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 10px 0;
+    margin: 0px 0;
     color: var(--primary-text-color);
 }
 
-.prior-auth-title {
+.policy-header {
     margin-bottom: 15px;
-    font-size: 1.5em;
-    color: var(--text-color);
 }
 
-.auth-section {
-    margin-bottom: 20px;
-}
-
-.auth-content {
+.policy-info-sections {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.auth-column {
-    flex: 1;
-    min-width: 200px;
-}
-
-.auth-column p {
-    margin: 5px 0;
-}
-
-ul {
-    padding-left: 20px;
-}
-
-ul li {
-    margin: 5px 0;
+    flex-direction: column;
+    gap: 10px;
 }
 
 /* Accordion-specific styles */
@@ -48,7 +25,7 @@ ul li {
     font-weight: bold;
     background-color: var(--accordion-bg-color);
     color: var(--primary-text-color);
-    padding: 10px 15px;
+    padding: 0px 10px;
     border: 1px solid var(--accordion-border-color);
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
@@ -57,7 +34,7 @@ ul li {
 .custom-accordion-toggle:hover {
     background-color: var(--accordion-hover-bg-color);
     color: var(--text-color); /* Ensure text color changes on hover */
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Add a subtle shadow on hover */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .custom-accordion-toggle.pf-m-expanded {
@@ -67,7 +44,7 @@ ul li {
 }
 
 .pf-c-accordion__content {
-    padding: 15px;
+    padding: 0px;
     background-color: var(--accordion-content-bg-color);
     color: var(--primary-text-color);
     border-left: 1px solid var(--accordion-border-color);

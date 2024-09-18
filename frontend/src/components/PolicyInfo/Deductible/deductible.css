@@ -1,0 +1,20 @@
+/* components/PolicyInfo/Deductible/deductible.css */
+
+/* Styling for the Deductible component */
+.deductible-container {
+    background-color: var(--accordion-content-bg-color);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 0px 0;
+    color: var(--primary-text-color);
+}
+
+h3 {
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+p {
+    margin: 5px 0;
+}

@@ -1,0 +1,20 @@
+/* components/PolicyInfo/CoPay/copay.css */
+
+/* Styling for the CoPay component */
+.copay-container {
+    background-color: var(--accordion-content-bg-color);
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 10px 0;
+    color: var(--primary-text-color);
+}
+
+h3 {
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+p {
+    margin: 5px 0;
+}
