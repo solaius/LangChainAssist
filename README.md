@@ -1,4 +1,5 @@
-Here's a sample `README.md` file for your LangChainAssist repository:
+![image](https://github.com/user-attachments/assets/b5ae1654-8520-4dd3-b474-3f3694c884ca)
+
 
 ```markdown
 # LangChainAssist
