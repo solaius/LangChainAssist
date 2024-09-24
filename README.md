@@ -1,9 +1,12 @@
-Here's a sample `README.md` file for your LangChainAssist repository:
+![image](https://github.com/user-attachments/assets/b5ae1654-8520-4dd3-b474-3f3694c884ca)
+
 
 ```markdown
 # LangChainAssist
 
-LangChainAssist is a project that integrates LangChain with a React frontend and a Python backend using FastAPI. This application leverages PatternFly for UI components and styling, providing an interface to interact with LangChain functionalities to connect with Red Hat Composer AI Assistants
+LangChainAssist is a project that integrates LangChain with a React frontend and a Python backend using FastAPI.
+This application leverages PatternFly for UI components and styling, providing an interface to interact with LangChain
+functionalities to connect with Red Hat Composer AI Assistants
 
 ## Table of Contents
 - [Getting Started](#getting-started)
