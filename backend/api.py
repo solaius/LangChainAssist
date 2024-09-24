@@ -97,6 +97,9 @@ async def process_subject_id(request: SubjectIDRequest):
 
     try:
         result = overall_chain.invoke({"subject_id": subject_id})
+        if result is None:
+            raise HTTPException(status_code=500, detail="Chain execution returned None.")
+        print(f"Chain result: {result}")
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
@@ -108,3 +111,4 @@ async def process_subject_id(request: SubjectIDRequest):
         "final_summary": result.get("final_summary", ""),
     }
     return response_data
+

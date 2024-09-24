@@ -1,5 +1,5 @@
 import os
-from assistant_chain_test import AssistantAPIChain
+from assistant_chain import AssistantAPIChain
 from langchain.chains import SequentialChain, TransformChain
 from dotenv import load_dotenv
 
@@ -50,8 +50,8 @@ def main():
     # Define the overall sequential chain
     overall_chain = SequentialChain(
         chains=[patient_data_chain, clinical_guidelines_chain, policy_coverage_chain, combine_chain, prior_auth_summary_chain],
-        input_variables=["subject_id"],
-        output_variables=["patient_data", "clinical_guidelines", "policy_coverage","final_summary"],
+        input_variables=["subject_id"],  # Only the initial input is needed here
+        output_variables=["final_summary"],  # Only the final output is needed here
         verbose=True
     )
 

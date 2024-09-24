@@ -34,6 +34,7 @@ class AssistantAPIChain(Chain):
             # Combine inputs into a single prompt
             prompt_parts = [str(inputs[key]) for key in self.input_key]
             prompt = "\n".join(prompt_parts)
+            print(prompt)
         else:
             prompt = inputs[self.input_key]
 
@@ -43,8 +44,8 @@ class AssistantAPIChain(Chain):
             #'Authorization': f'Bearer {API_KEY}'
         }
         data = {
-            "prompt": prompt,
-            "assistant": self.assistant_name
+            "message": prompt,
+            "assistantName": self.assistant_name
         }
 
         # Implement retry logic

@@ -1,0 +1,18 @@
+patient_data_query = """
+MATCH (p:Patient)-[:HAS_ADMISSION]->(a:Admission)
+WHERE p.subject_id IN ['3419']
+OPTIONAL MATCH (a)-[:HAS_DIAGNOSIS]->(d:Diagnosis)
+OPTIONAL MATCH (a)-[:HAS_PROCEDURE]->(proc:Procedure)
+RETURN p.subject_id AS SubjectID,
+       p.dob AS DateOfBirth,
+       p.dod AS DateOfDeath,
+       a.hadm_id AS AdmissionID,
+       a.admission_type AS AdmissionType,
+       a.admission_location AS AdmissionLocation,
+       a.insurance AS Insurance,
+       a.diagnosis AS Diagnosis,
+       a.admission_time AS AdmissionDate,
+       a.discharge_time AS DischargeDate, 
+       apoc.text.join(COLLECT(DISTINCT d.icd9_code), ', ') AS Diagnosis_ICD9_Codes, 
+       apoc.text.join(COLLECT(DISTINCT proc.icd9_code), ', ') AS Procedure_ICD9_Codes
+"""
