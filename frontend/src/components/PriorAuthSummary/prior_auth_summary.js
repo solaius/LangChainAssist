@@ -5,7 +5,7 @@ import { Accordion, AccordionItem, AccordionContent, AccordionToggle } from '@pa
 import './prior_auth_summary.css';
 
 const PriorAuthorizationSummary = () => {
-  const [isExpanded, setIsExpanded] = useState(false); // State for Accordion toggle
+  const [isExpanded, setIsExpanded] = useState(true); // State for Accordion toggle
 
   const onToggle = () => {
     setIsExpanded(!isExpanded);

@@ -1,15 +1,19 @@
 // components/PriorAuthRequest/prior_auth_request.js
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Accordion, AccordionItem, AccordionContent, AccordionToggle } from '@patternfly/react-core';
 import './prior_auth_request.css';
 
-const PriorAuthRequest = () => {
+const PriorAuthRequest = ({ currentSection }) => {
   const [isExpanded, setIsExpanded] = useState(false); // State for Accordion toggle
 
   const onToggle = () => {
     setIsExpanded(!isExpanded);
   };
+
+  useEffect(() => {
+    setIsExpanded(currentSection === 0 ? true : false)
+  }, [currentSection])
 
   return (
     <Accordion asDefinitionList>

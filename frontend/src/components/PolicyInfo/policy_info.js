@@ -1,13 +1,13 @@
 // components/PolicyInfo/policy_info.js
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Deductible from './Deductible/deductible';
 import CoPay from './CoPay/co_pay';
 import PolicyCoverage from './PolicyCoverage/policy_coverage';
 import { Accordion, AccordionItem, AccordionContent, AccordionToggle } from '@patternfly/react-core';
 import './policy_info.css';
 
-const PolicyInfo = () => {
+const PolicyInfo = ({ currentSection }) => {
   const [expandedSections, setExpandedSections] = useState({});
 
   const onToggle = (section) => {
@@ -16,6 +16,20 @@ const PolicyInfo = () => {
       [section]: !prevState[section],
     }));
   };
+
+  useEffect(() => {
+    setExpandedSections(currentSection === 3 ? {
+      policyInfo: true,
+      deductible: true,
+      copay: true,
+      policyCoverage: true,
+    } : {
+      policyInfo: false,
+      deductible: false,
+      copay: false,
+      policyCoverage: false,
+    })
+  }, [currentSection])
 
   return (
     <Accordion asDefinitionList>
