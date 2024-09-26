@@ -1,10 +1,10 @@
 // components/PatientData/patient_data.js
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Accordion, AccordionItem, AccordionContent, AccordionToggle } from '@patternfly/react-core';
 import './patient_data.css';
 
-const PatientData = () => {
+const PatientData = ({ currentSection }) => {
   const [isExpanded, setIsExpanded] = useState({
     patientInfo: false,
     diagnoses: false,
@@ -17,6 +17,18 @@ const PatientData = () => {
       [section]: !prevState[section],
     }));
   };
+
+  useEffect(() => {
+    setIsExpanded(currentSection === 1 ? {
+      patientInfo: true,
+      diagnoses: false,
+      procedures: false,
+    } : {
+      patientInfo: false,
+      diagnoses: false,
+      procedures: false,
+    })
+  }, [currentSection])
 
   return (
     <Accordion asDefinitionList>

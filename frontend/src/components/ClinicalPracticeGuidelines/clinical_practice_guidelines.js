@@ -1,15 +1,19 @@
 // components/ClinicalPracticeGuidelines/clinical_practice_guidelines.js
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Accordion, AccordionItem, AccordionContent, AccordionToggle } from '@patternfly/react-core';
 import './clinical_practice_guidelines.css';
 
-const ClinicalPracticeGuidelines = () => {
+const ClinicalPracticeGuidelines = ({ currentSection }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const onToggle = () => {
     setIsExpanded(!isExpanded);
   };
+
+  useEffect(() => {
+    setIsExpanded(currentSection === 2 ? true : false)
+  }, [currentSection])
 
   return (
     <Accordion asDefinitionList>
