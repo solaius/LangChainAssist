@@ -15,6 +15,7 @@ import QuestionCircleIcon from '@patternfly/react-icons/dist/esm/icons/question-
 import EllipsisVIcon from '@patternfly/react-icons/dist/esm/icons/ellipsis-v-icon';
 import imgAvatar from './images/avatar.jpg';
 import InfoCircleIcon from '@patternfly/react-icons/dist/esm/icons/info-circle-icon';
+import ArrowRightIcon from '@patternfly/react-icons/dist/esm/icons/arrow-right-icon';
 
 // import Header from './components/Header/header';
 // import Footer from './components/Footer/footer';
@@ -34,6 +35,12 @@ const App = () => {
   const handleNextSection = () => {
     if (currentSection < 3) {
       setCurrentSection((prevSection) => (prevSection + 1))
+    }
+  }
+
+  const handlePrevSection = () => {
+    if (currentSection > 0) {
+      setCurrentSection((prevSection) => (prevSection - 1))
     }
   }
 
@@ -161,7 +168,7 @@ const App = () => {
               default: '36px'
             }} style={{ verticalAlign: 'middle' }} />
           </FlexItem>
-          <FlexItem style={{ fontFamily: 'Red Hat Display' }}>
+          <FlexItem style={{ fontFamily: 'Red Hat Display', fontSize: 18 }}>
             <span style={{ fontWeight: 600 }}>Red Hat Insurance</span> <span>Utilization Portal</span>
           </FlexItem>
         </Flex>
@@ -222,9 +229,13 @@ const App = () => {
         }}>
         <PageSection>
           <Grid hasGutter style={{ gap: 24 }}>
-            <GridItem span={8}>
-              <Card isRounded>
-                <CardHeader>
+            <GridItem span={12}>
+
+              <Grid>
+                <GridItem span={2} style={{ alignSelf: 'center' }}>
+                  <Button variant="tertiary">Cancel</Button>
+                </GridItem>
+                <GridItem span={8}>
                   <ProgressStepper isCenterAligned>
                     <ProgressStep variant={currentSection > 0 ? 'success' : 'info'}>Prior Auth</ProgressStep>
                     <ProgressStep variant={currentSection > 1 ? 'success' : currentSection === 1 ? 'info' : 'pending'}>Patient Data</ProgressStep>
@@ -232,8 +243,24 @@ const App = () => {
                     <ProgressStep variant={currentSection > 3 ? 'success' : currentSection === 3 ? 'info' : 'pending'}>Insurance</ProgressStep>
                     <ProgressStep variant={currentSection > 4 ? 'success' : currentSection === 4 ? 'info' : 'pending'}>Complete</ProgressStep>
                   </ProgressStepper>
-                </CardHeader>
-                <CardBody>
+                </GridItem>
+                <GridItem span={2} style={{ alignSelf: 'center', justifySelf: 'end' }}>
+                  <Button variant="secondary" style={{ marginRight: 8 }} onClick={handlePrevSection} isDisabled={currentSection === 0}>Prev</Button>
+                  <Button onClick={handleNextSection} isDisabled={currentSection === 3}>
+                    {/* {currentSection === 0 && 'Review Patient Data'}
+                    {currentSection === 1 && 'Review Guidelines'}
+                    {currentSection === 2 && 'Review Insurance'} */}
+                    Next
+                  </Button>
+                </GridItem>
+              </Grid>
+
+
+
+            </GridItem>
+            <GridItem span={8}>
+              <Card isRounded>
+                <CardBody style={{ paddingBlockStart: '1.5rem' }}>
                   <PriorAuthRequest currentSection={currentSection} />
                   <PatientData currentSection={currentSection} />
                   <ClinicalPracticeGuidelines currentSection={currentSection} />
@@ -275,11 +302,12 @@ const App = () => {
                     </Card>
                   </FlexItem>
                 )}
-                {currentSection < 3 && (
+                {/* {currentSection < 3 && (
                   <FlexItem style={{ width: '100%', margin: 0 }}>
-                    <Card isRounded>
-                      <CardBody>
-                        <Button onClick={handleNextSection}>
+                    <Card isRounded style={{ height: '101px' }}>
+                      <CardBody style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                        <Button variant="tertiary" isDisabled>Cancel</Button>
+                        <Button icon={<ArrowRightIcon />} iconPosition='end' onClick={handleNextSection}>
                           {currentSection === 0 && 'Review Patient Data'}
                           {currentSection === 1 && 'Review Guidelines'}
                           {currentSection === 2 && 'Review Insurance'}
@@ -287,7 +315,7 @@ const App = () => {
                       </CardBody>
                     </Card>
                   </FlexItem>
-                )}
+                )} */}
                 <FlexItem>
                   <PriorAuthSummary />
                 </FlexItem>
