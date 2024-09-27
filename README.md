@@ -1,7 +1,5 @@
 ![image](https://github.com/user-attachments/assets/b5ae1654-8520-4dd3-b474-3f3694c884ca)
 
-
-```markdown
 # LangChainAssist
 
 LangChainAssist is a project that integrates LangChain with a React frontend and a Python backend using FastAPI.
@@ -13,7 +11,7 @@ functionalities to connect with Red Hat Composer AI Assistants
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Features](#features)
+- [Features](#features) 
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -93,6 +91,5 @@ Contributions are welcome! If you would like to contribute to this project, plea
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-```
 
 This `README.md` file provides an overview of the project, setup instructions, and other useful information for users and contributors. Make sure to update any section that might require specific details related to your project.
