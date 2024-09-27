@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { Accordion, AccordionItem, AccordionContent, AccordionToggle } from '@patternfly/react-core';
-import './policy_coverage.css';
+// import './policy_coverage.css';
 
 const PolicyCoverage = () => {
   const [expandedSections, setExpandedSections] = useState({});
