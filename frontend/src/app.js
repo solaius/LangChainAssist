@@ -6,7 +6,7 @@ import { ThemeProvider } from './theme-context';
 import '@patternfly/react-core/dist/styles/base.css';
 // import './app.css';
 
-import { Avatar, Brand, Breadcrumb, BreadcrumbItem, Button, ButtonVariant, Card, CardHeader, CardBody, Divider, Dropdown, DropdownGroup, DropdownItem, DropdownList, Flex, FlexItem, Gallery, GalleryItem, Grid, GridItem, Masthead, MastheadBrand, MastheadContent, MastheadMain, MastheadToggle, MenuToggle, MenuToggleElement, Nav, NavItem, NavList, Page, PageSection, PageSectionVariants, PageSidebar, PageSidebarBody, PageToggleButton, ProgressStep, ProgressStepper, SkipToContent, Text, TextContent, Toolbar, ToolbarContent, ToolbarGroup, ToolbarItem, TextVariants, Label } from '@patternfly/react-core';
+import { Avatar, Brand, Breadcrumb, BreadcrumbItem, Button, ButtonVariant, Card, CardHeader, CardBody, Divider, Dropdown, DropdownGroup, DropdownItem, DropdownList, Flex, FlexItem, Gallery, GalleryItem, Grid, GridItem, Masthead, MastheadBrand, MastheadContent, MastheadMain, MastheadToggle, MenuToggle, MenuToggleElement, Nav, NavItem, NavList, Page, PageSection, PageSectionVariants, PageSidebar, PageSidebarBody, PageToggleButton, ProgressStep, ProgressStepper, SkipToContent, Text, TextContent, Toolbar, ToolbarContent, ToolbarGroup, ToolbarItem, TextVariants, Label, Spinner } from '@patternfly/react-core';
 import BarsIcon from '@patternfly/react-icons/dist/esm/icons/bars-icon';
 import BellIcon from '@patternfly/react-icons/dist/esm/icons/bell-icon';
 import CogIcon from '@patternfly/react-icons/dist/esm/icons/cog-icon';
@@ -206,6 +206,20 @@ const App = () => {
 
   const pageSkipToContent = <SkipToContent href={`#${mainContainerId}`}>Skip to content</SkipToContent>;
 
+  const [isProcessing, setIsProcessing] = useState(true)
+
+  useEffect(() => {
+    if (currentSection === 3) {
+      setIsProcessing(true)
+
+      const timer = setTimeout(() => {
+        setIsProcessing(false)
+      }, 3000)
+
+      return () => clearTimeout(timer)
+    }
+  }, [currentSection])
+
   return (
     <ThemeProvider>
       <Page
@@ -286,27 +300,36 @@ const App = () => {
                         <Text component={TextVariants.h2} style={{ fontFamily: 'Red Hat Display', fontWeight: 600 }}>Rating Score - 60%</Text>
                       </CardHeader>
                       <CardBody>
-                        <ChartBullet
-                          ariaDesc="Storage capacity"
-                          ariaTitle="Bullet chart example"
-                          comparativeWarningMeasureData={[{ name: 'Warning', y: 50 }]}
-                          constrainToVisibleArea
-                          height={150}
-                          labels={({ datum }) => `${datum.name}: ${datum.y}`}
-                          maxDomain={{ y: 100 }}
-                          name="chart1"
-                          primarySegmentedMeasureData={[{ name: 'Measure', y: 60 }]}
-                          qualitativeRangeData={[{ name: 'Range', y: 50 }, { name: 'Range', y: 75 }]}
-                          width={600}
-                        />
-                        <Flex spaceItems={{ default: 'columnGapSm' }} justifyContent={{ default: 'justifyContentCenter' }}>
-                          <FlexItem>
-                            <Button>Approve</Button>
-                          </FlexItem>
-                          <FlexItem>
-                            <Button variant="secondary" isDanger>Decline</Button>
-                          </FlexItem>
-                        </Flex>
+                        {isProcessing && (
+                          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                            <Spinner />
+                          </div>
+                        )}
+                        {!isProcessing && (
+                          <>
+                            <ChartBullet
+                              ariaDesc="Storage capacity"
+                              ariaTitle="Bullet chart example"
+                              comparativeWarningMeasureData={[{ name: 'Warning', y: 50 }]}
+                              constrainToVisibleArea
+                              height={150}
+                              labels={({ datum }) => `${datum.name}: ${datum.y}`}
+                              maxDomain={{ y: 100 }}
+                              name="chart1"
+                              primarySegmentedMeasureData={[{ name: 'Measure', y: 60 }]}
+                              qualitativeRangeData={[{ name: 'Range', y: 50 }, { name: 'Range', y: 75 }]}
+                              width={600}
+                            />
+                            <Flex spaceItems={{ default: 'columnGapSm' }} justifyContent={{ default: 'justifyContentCenter' }}>
+                              <FlexItem>
+                                <Button>Approve</Button>
+                              </FlexItem>
+                              <FlexItem>
+                                <Button variant="secondary" isDanger>Decline</Button>
+                              </FlexItem>
+                            </Flex>
+                          </>
+                        )}
                       </CardBody>
                     </Card>
                   </FlexItem>
