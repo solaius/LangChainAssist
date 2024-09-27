@@ -6,17 +6,15 @@ import { ThemeProvider } from './theme-context';
 import '@patternfly/react-core/dist/styles/base.css';
 // import './app.css';
 
-// import { Button, Card, CardBody, CardHeader, Divider, Flex, FlexItem, ProgressStep, ProgressStepper } from '@patternfly/react-core';
-import { Avatar, Brand, Breadcrumb, BreadcrumbItem, Button, ButtonVariant, Card, CardHeader, CardBody, Divider, Dropdown, DropdownGroup, DropdownItem, DropdownList, Flex, FlexItem, Gallery, GalleryItem, Grid, GridItem, Masthead, MastheadBrand, MastheadContent, MastheadMain, MastheadToggle, MenuToggle, MenuToggleElement, Nav, NavItem, NavList, Page, PageSection, PageSectionVariants, PageSidebar, PageSidebarBody, PageToggleButton, ProgressStep, ProgressStepper, SkipToContent, Text, TextContent, Toolbar, ToolbarContent, ToolbarGroup, ToolbarItem, TextVariants } from '@patternfly/react-core';
+import { Avatar, Brand, Breadcrumb, BreadcrumbItem, Button, ButtonVariant, Card, CardHeader, CardBody, Divider, Dropdown, DropdownGroup, DropdownItem, DropdownList, Flex, FlexItem, Gallery, GalleryItem, Grid, GridItem, Masthead, MastheadBrand, MastheadContent, MastheadMain, MastheadToggle, MenuToggle, MenuToggleElement, Nav, NavItem, NavList, Page, PageSection, PageSectionVariants, PageSidebar, PageSidebarBody, PageToggleButton, ProgressStep, ProgressStepper, SkipToContent, Text, TextContent, Toolbar, ToolbarContent, ToolbarGroup, ToolbarItem, TextVariants, Label } from '@patternfly/react-core';
 import BarsIcon from '@patternfly/react-icons/dist/esm/icons/bars-icon';
 import BellIcon from '@patternfly/react-icons/dist/esm/icons/bell-icon';
 import CogIcon from '@patternfly/react-icons/dist/esm/icons/cog-icon';
 import HelpIcon from '@patternfly/react-icons/dist/esm/icons/help-icon';
 import QuestionCircleIcon from '@patternfly/react-icons/dist/esm/icons/question-circle-icon';
 import EllipsisVIcon from '@patternfly/react-icons/dist/esm/icons/ellipsis-v-icon';
-// import imgAvatar from '@patternfly/react-core/src/components/assets/avatarImg.svg';
 import imgAvatar from './images/avatar.jpg';
-// import pfLogo from '@patternfly/react-core/src/demos/assets/pf-logo.svg';
+import InfoCircleIcon from '@patternfly/react-icons/dist/esm/icons/info-circle-icon';
 
 // import Header from './components/Header/header';
 // import Footer from './components/Footer/footer';
@@ -65,11 +63,9 @@ const App = () => {
     setIsFullKebabDropdownOpen(false);
   };
   const dashboardBreadcrumb = <Breadcrumb>
-    <BreadcrumbItem>Section home</BreadcrumbItem>
-    <BreadcrumbItem to="#">Section title</BreadcrumbItem>
-    <BreadcrumbItem to="#">Section title</BreadcrumbItem>
+    <BreadcrumbItem to="#">Policies</BreadcrumbItem>
     <BreadcrumbItem to="#" isActive>
-      Section landing
+      CL-2467802
     </BreadcrumbItem>
   </Breadcrumb>;
   const kebabDropdownItems = <>
@@ -208,8 +204,14 @@ const App = () => {
         additionalGroupedContent={
           <PageSection variant={PageSectionVariants.light} isWidthLimited>
             <TextContent>
-              <Text component="h1">CL-2467802</Text>
-              <Text component="p">This is a full page demo.</Text>
+              <Flex alignItems={{ default: 'alignItemsCenter' }} gap={{ default: 'gapSm' }}>
+                <FlexItem>
+                  <Text component="h1">Claim CL-2467802</Text>
+                </FlexItem>
+                <FlexItem>
+                  <Label color="blue" icon={<InfoCircleIcon />}>In review</Label>
+                </FlexItem>
+              </Flex>
             </TextContent>
           </PageSection>
         }
@@ -219,59 +221,77 @@ const App = () => {
           }
         }}>
         <PageSection>
-          <Grid hasGutter>
+          <Grid hasGutter style={{ gap: 24 }}>
             <GridItem span={8}>
-              <ProgressStepper isCenterAligned>
-                <ProgressStep variant={currentSection > 0 ? 'success' : 'info'}>Prior Auth</ProgressStep>
-                <ProgressStep variant={currentSection > 1 ? 'success' : currentSection === 1 ? 'info' : 'pending'}>Patient data</ProgressStep>
-                <ProgressStep variant={currentSection > 2 ? 'success' : currentSection === 2 ? 'info' : 'pending'}>Guidelines</ProgressStep>
-                <ProgressStep variant={currentSection > 3 ? 'success' : currentSection === 3 ? 'info' : 'pending'}>Insurance</ProgressStep>
-                <ProgressStep variant={currentSection > 4 ? 'success' : currentSection === 4 ? 'info' : 'pending'}>Complete</ProgressStep>
-              </ProgressStepper>
-              <PriorAuthRequest currentSection={currentSection} />
-              <PatientData currentSection={currentSection} />
-              <ClinicalPracticeGuidelines currentSection={currentSection} />
-              <PolicyInfo currentSection={currentSection} />
+              <Card isRounded>
+                <CardHeader>
+                  <ProgressStepper isCenterAligned>
+                    <ProgressStep variant={currentSection > 0 ? 'success' : 'info'}>Prior Auth</ProgressStep>
+                    <ProgressStep variant={currentSection > 1 ? 'success' : currentSection === 1 ? 'info' : 'pending'}>Patient Data</ProgressStep>
+                    <ProgressStep variant={currentSection > 2 ? 'success' : currentSection === 2 ? 'info' : 'pending'}>Guidelines</ProgressStep>
+                    <ProgressStep variant={currentSection > 3 ? 'success' : currentSection === 3 ? 'info' : 'pending'}>Insurance</ProgressStep>
+                    <ProgressStep variant={currentSection > 4 ? 'success' : currentSection === 4 ? 'info' : 'pending'}>Complete</ProgressStep>
+                  </ProgressStepper>
+                </CardHeader>
+                <CardBody>
+                  <PriorAuthRequest currentSection={currentSection} />
+                  <PatientData currentSection={currentSection} />
+                  <ClinicalPracticeGuidelines currentSection={currentSection} />
+                  <PolicyInfo currentSection={currentSection} />
+                </CardBody>
+              </Card>
             </GridItem>
             <GridItem span={4}>
-              {currentSection === 3 && (
-                <Card isRounded>
-                  <CardHeader>Rating Score - 60%</CardHeader>
-                  <CardBody>
-                    <ChartBullet
-                      ariaDesc="Storage capacity"
-                      ariaTitle="Bullet chart example"
-                      comparativeWarningMeasureData={[{ name: 'Warning', y: 50 }]}
-                      constrainToVisibleArea
-                      height={150}
-                      labels={({ datum }) => `${datum.name}: ${datum.y}`}
-                      maxDomain={{ y: 100 }}
-                      name="chart1"
-                      primarySegmentedMeasureData={[{ name: 'Measure', y: 60 }]}
-                      qualitativeRangeData={[{ name: 'Range', y: 50 }, { name: 'Range', y: 75 }]}
-                      width={600}
-                    />
-                    <Flex spaceItems={{ default: 'columnGapSm' }} justifyContent={{ default: 'justifyContentCenter' }}>
-                      <FlexItem>
-                        <Button>Approve</Button>
-                      </FlexItem>
-                      <FlexItem>
-                        <Button variant="tertiary">Decline</Button>
-                      </FlexItem>
-                    </Flex>
-                  </CardBody>
-                </Card>
-              )}
-
-              {currentSection < 3 && (
-                <Button onClick={handleNextSection}>
-                  {currentSection === 0 && 'Show patient info'}
-                  {currentSection === 1 && 'Show guidelines'}
-                  {currentSection === 2 && 'Show insurance'}
-                </Button>
-              )}
-
-              <PriorAuthSummary />
+              <Flex style={{ position: 'sticky', top: '135px', gap: 24 }}>
+                {currentSection === 3 && (
+                  <FlexItem style={{ width: '100%', margin: 0 }}>
+                    <Card isRounded>
+                      <CardHeader>
+                        <Text component={TextVariants.h2} style={{ fontFamily: 'Red Hat Display', fontWeight: 600 }}>Rating Score - 60%</Text>
+                      </CardHeader>
+                      <CardBody>
+                        <ChartBullet
+                          ariaDesc="Storage capacity"
+                          ariaTitle="Bullet chart example"
+                          comparativeWarningMeasureData={[{ name: 'Warning', y: 50 }]}
+                          constrainToVisibleArea
+                          height={150}
+                          labels={({ datum }) => `${datum.name}: ${datum.y}`}
+                          maxDomain={{ y: 100 }}
+                          name="chart1"
+                          primarySegmentedMeasureData={[{ name: 'Measure', y: 60 }]}
+                          qualitativeRangeData={[{ name: 'Range', y: 50 }, { name: 'Range', y: 75 }]}
+                          width={600}
+                        />
+                        <Flex spaceItems={{ default: 'columnGapSm' }} justifyContent={{ default: 'justifyContentCenter' }}>
+                          <FlexItem>
+                            <Button>Approve</Button>
+                          </FlexItem>
+                          <FlexItem>
+                            <Button variant="secondary" isDanger>Decline</Button>
+                          </FlexItem>
+                        </Flex>
+                      </CardBody>
+                    </Card>
+                  </FlexItem>
+                )}
+                {currentSection < 3 && (
+                  <FlexItem style={{ width: '100%', margin: 0 }}>
+                    <Card isRounded>
+                      <CardBody>
+                        <Button onClick={handleNextSection}>
+                          {currentSection === 0 && 'Review Patient Data'}
+                          {currentSection === 1 && 'Review Guidelines'}
+                          {currentSection === 2 && 'Review Insurance'}
+                        </Button>
+                      </CardBody>
+                    </Card>
+                  </FlexItem>
+                )}
+                <FlexItem>
+                  <PriorAuthSummary />
+                </FlexItem>
+              </Flex>
             </GridItem>
           </Grid>
         </PageSection>
