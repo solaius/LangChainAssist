@@ -2,20 +2,32 @@
 
 import React, { useState, useEffect } from 'react';
 import { ThemeProvider } from './theme-context';
-import Header from './components/Header/header';
-import Footer from './components/Footer/footer';
+
+import '@patternfly/react-core/dist/styles/base.css';
+// import './app.css';
+
+// import { Button, Card, CardBody, CardHeader, Divider, Flex, FlexItem, ProgressStep, ProgressStepper } from '@patternfly/react-core';
+import { Avatar, Brand, Breadcrumb, BreadcrumbItem, Button, ButtonVariant, Card, CardHeader, CardBody, Divider, Dropdown, DropdownGroup, DropdownItem, DropdownList, Flex, FlexItem, Gallery, GalleryItem, Grid, GridItem, Masthead, MastheadBrand, MastheadContent, MastheadMain, MastheadToggle, MenuToggle, MenuToggleElement, Nav, NavItem, NavList, Page, PageSection, PageSectionVariants, PageSidebar, PageSidebarBody, PageToggleButton, ProgressStep, ProgressStepper, SkipToContent, Text, TextContent, Toolbar, ToolbarContent, ToolbarGroup, ToolbarItem, TextVariants } from '@patternfly/react-core';
+import BarsIcon from '@patternfly/react-icons/dist/esm/icons/bars-icon';
+import BellIcon from '@patternfly/react-icons/dist/esm/icons/bell-icon';
+import CogIcon from '@patternfly/react-icons/dist/esm/icons/cog-icon';
+import HelpIcon from '@patternfly/react-icons/dist/esm/icons/help-icon';
+import QuestionCircleIcon from '@patternfly/react-icons/dist/esm/icons/question-circle-icon';
+import EllipsisVIcon from '@patternfly/react-icons/dist/esm/icons/ellipsis-v-icon';
+// import imgAvatar from '@patternfly/react-core/src/components/assets/avatarImg.svg';
+import imgAvatar from './images/avatar.jpg';
+// import pfLogo from '@patternfly/react-core/src/demos/assets/pf-logo.svg';
+
+// import Header from './components/Header/header';
+// import Footer from './components/Footer/footer';
 import PriorAuthRequest from './components/PriorAuthRequest/prior_auth_request';
 import PriorAuthSummary from './components/PriorAuthSummary/prior_auth_summary';
 import PatientData from './components/PatientData/patient_data';
-import { Button, Card, CardBody, CardHeader, Divider, Flex, FlexItem, ProgressStep, ProgressStepper } from '@patternfly/react-core';
-import '@patternfly/react-core/dist/styles/base.css';
-import './app.css'; // Import the CSS file
 import ClinicalPracticeGuidelines from './components/ClinicalPracticeGuidelines/clinical_practice_guidelines';
 import PolicyInfo from './components/PolicyInfo/policy_info';
 import { ChartBullet } from '@patternfly/react-charts';
 
-// Anthem BlueCross (move to left)
-// Patient Summary (move to right)
+import logo from './images/rh_insurance.png';
 
 const App = () => {
 
@@ -27,13 +39,188 @@ const App = () => {
     }
   }
 
+  const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
+  const [isKebabDropdownOpen, setIsKebabDropdownOpen] = React.useState(false);
+  const [isFullKebabDropdownOpen, setIsFullKebabDropdownOpen] = React.useState(false);
+  const [activeItem, setActiveItem] = React.useState(2);
+  const onNavSelect = (_event, selectedItem) => {
+    typeof selectedItem.itemId === 'number' && setActiveItem(selectedItem.itemId);
+  };
+  const onDropdownToggle = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+  const onDropdownSelect = () => {
+    setIsDropdownOpen(false);
+  };
+  const onKebabDropdownToggle = () => {
+    setIsKebabDropdownOpen(!isKebabDropdownOpen);
+  };
+  const onKebabDropdownSelect = () => {
+    setIsKebabDropdownOpen(false);
+  };
+  const onFullKebabDropdownToggle = () => {
+    setIsFullKebabDropdownOpen(!isFullKebabDropdownOpen);
+  };
+  const onFullKebabDropdownSelect = () => {
+    setIsFullKebabDropdownOpen(false);
+  };
+  const dashboardBreadcrumb = <Breadcrumb>
+    <BreadcrumbItem>Section home</BreadcrumbItem>
+    <BreadcrumbItem to="#">Section title</BreadcrumbItem>
+    <BreadcrumbItem to="#">Section title</BreadcrumbItem>
+    <BreadcrumbItem to="#" isActive>
+      Section landing
+    </BreadcrumbItem>
+  </Breadcrumb>;
+  const kebabDropdownItems = <>
+    <DropdownItem>
+      <CogIcon /> Settings
+    </DropdownItem>
+    <DropdownItem>
+      <HelpIcon /> Help
+    </DropdownItem>
+  </>;
+  const userDropdownItems = <>
+    <DropdownItem key="group 2 profile">My profile</DropdownItem>
+    <DropdownItem key="group 2 user">User management</DropdownItem>
+    <DropdownItem key="group 2 logout">Logout</DropdownItem>
+  </>;
+  const headerToolbar = <Toolbar id="toolbar" isFullHeight isStatic>
+    <ToolbarContent>
+      <ToolbarGroup variant="icon-button-group" align={{
+        default: 'alignRight'
+      }} spacer={{
+        default: 'spacerNone',
+        md: 'spacerMd'
+      }}>
+        <ToolbarItem>
+          <Button aria-label="Notifications" variant={ButtonVariant.plain} icon={<BellIcon />} />
+        </ToolbarItem>
+        <ToolbarGroup variant="icon-button-group" visibility={{
+          default: 'hidden',
+          lg: 'visible'
+        }}>
+          <ToolbarItem>
+            <Button aria-label="Settings" variant={ButtonVariant.plain} icon={<CogIcon />} />
+          </ToolbarItem>
+          <ToolbarItem>
+            <Button aria-label="Help" variant={ButtonVariant.plain} icon={<QuestionCircleIcon />} />
+          </ToolbarItem>
+        </ToolbarGroup>
+        <ToolbarItem visibility={{
+          default: 'hidden',
+          md: 'visible',
+          lg: 'hidden'
+        }}>
+          <Dropdown isOpen={isKebabDropdownOpen} onSelect={onKebabDropdownSelect} onOpenChange={isOpen => setIsKebabDropdownOpen(isOpen)} popperProps={{
+            position: 'right'
+          }} toggle={toggleRef => <MenuToggle ref={toggleRef} onClick={onKebabDropdownToggle} isExpanded={isKebabDropdownOpen} variant="plain" aria-label="Settings and help">
+            <EllipsisVIcon aria-hidden="true" />
+          </MenuToggle>}>
+            <DropdownList>{kebabDropdownItems}</DropdownList>
+          </Dropdown>
+        </ToolbarItem>
+        <ToolbarItem visibility={{
+          md: 'hidden'
+        }}>
+          <Dropdown isOpen={isFullKebabDropdownOpen} onSelect={onFullKebabDropdownSelect} onOpenChange={isOpen => setIsFullKebabDropdownOpen(isOpen)} popperProps={{
+            position: 'right'
+          }} toggle={toggleRef => <MenuToggle ref={toggleRef} onClick={onFullKebabDropdownToggle} isExpanded={isFullKebabDropdownOpen} variant="plain" aria-label="Toolbar menu">
+            <EllipsisVIcon aria-hidden="true" />
+          </MenuToggle>}>
+            <DropdownGroup key="group 2" aria-label="User actions">
+              <DropdownList>{userDropdownItems}</DropdownList>
+            </DropdownGroup>
+            <Divider />
+            <DropdownList>{kebabDropdownItems}</DropdownList>
+          </Dropdown>
+        </ToolbarItem>
+      </ToolbarGroup>
+      <ToolbarItem visibility={{
+        default: 'hidden',
+        md: 'visible'
+      }}>
+        <Dropdown isOpen={isDropdownOpen} onSelect={onDropdownSelect} onOpenChange={isOpen => setIsDropdownOpen(isOpen)} popperProps={{
+          position: 'right'
+        }} toggle={toggleRef => <MenuToggle ref={toggleRef} onClick={onDropdownToggle} isFullHeight isExpanded={isDropdownOpen} icon={<Avatar src={imgAvatar} alt="" />}>
+          Jeanette Lawson
+        </MenuToggle>}>
+          <DropdownList>{userDropdownItems}</DropdownList>
+        </Dropdown>
+      </ToolbarItem>
+    </ToolbarContent>
+  </Toolbar>;
+
+  const masthead = <Masthead>
+    <MastheadToggle>
+      <PageToggleButton variant="plain" aria-label="Global navigation">
+        <BarsIcon />
+      </PageToggleButton>
+    </MastheadToggle>
+    <MastheadMain>
+      <MastheadBrand>
+        <Flex alignItems={{ default: 'alignItemsCenter' }} style={{ gap: '8px' }}>
+          <FlexItem style={{ margin: 0 }}>
+            <Brand src={logo} alt="PatternFly" heights={{
+              default: '36px'
+            }} style={{ verticalAlign: 'middle' }} />
+          </FlexItem>
+          <FlexItem style={{ fontFamily: 'Red Hat Display' }}>
+            <span style={{ fontWeight: 600 }}>Red Hat Insurance</span> <span>Utilization Portal</span>
+          </FlexItem>
+        </Flex>
+      </MastheadBrand>
+    </MastheadMain>
+    <MastheadContent>{headerToolbar}</MastheadContent>
+  </Masthead>;
+
+  const pageNav = <Nav onSelect={onNavSelect}>
+    <NavList>
+      <NavItem itemId={0} isActive={activeItem === 0}>Dashboard</NavItem>
+      <NavItem itemId={1} isActive={activeItem === 1}>Clients</NavItem>
+      <NavItem itemId={2} isActive={activeItem === 2}>Policies</NavItem>
+      <NavItem itemId={3} isActive={activeItem === 3}>Claims</NavItem>
+      <NavItem itemId={4} isActive={activeItem === 4}>Providers</NavItem>
+      <NavItem itemId={5} isActive={activeItem === 5}>Renewals</NavItem>
+      <NavItem itemId={6} isActive={activeItem === 6}>Reports</NavItem>
+    </NavList>
+  </Nav>;
+
+  const sidebar = <PageSidebar>
+    <PageSidebarBody>{pageNav}</PageSidebarBody>
+  </PageSidebar>;
+
+  const mainContainerId = 'main-content';
+
+  const pageSkipToContent = <SkipToContent href={`#${mainContainerId}`}>Skip to content</SkipToContent>;
+
   return (
     <ThemeProvider>
-      <div className="app-container">
-        <Header /> {/* Use the Header component */}
-        <main className="app-main">
-          <div className="content-container">
-            <div className="left-section">
+      <Page
+        header={masthead}
+        sidebar={sidebar}
+        isManagedSidebar
+        skipToContent={pageSkipToContent}
+        breadcrumb={dashboardBreadcrumb}
+        mainContainerId={mainContainerId}
+        isBreadcrumbWidthLimited
+        isBreadcrumbGrouped
+        additionalGroupedContent={
+          <PageSection variant={PageSectionVariants.light} isWidthLimited>
+            <TextContent>
+              <Text component="h1">CL-2467802</Text>
+              <Text component="p">This is a full page demo.</Text>
+            </TextContent>
+          </PageSection>
+        }
+        groupProps={{
+          stickyOnBreakpoint: {
+            default: 'top'
+          }
+        }}>
+        <PageSection>
+          <Grid hasGutter>
+            <GridItem span={8}>
               <ProgressStepper>
                 <ProgressStep variant={currentSection > 0 ? 'success' : 'info'}>Prior Auth</ProgressStep>
                 <ProgressStep variant={currentSection > 1 ? 'success' : currentSection === 1 ? 'info' : 'pending'}>Patient data</ProgressStep>
@@ -44,56 +231,51 @@ const App = () => {
               <PatientData currentSection={currentSection} />
               <ClinicalPracticeGuidelines currentSection={currentSection} />
               <PolicyInfo currentSection={currentSection} />
-            </div>
-            <div className="right-section">
-              <div className="right-item">
-                {currentSection === 3 && (
-                  <Card isRounded>
-                    <CardHeader>Rating Score - 60%</CardHeader>
-                    <CardBody>
-                      <ChartBullet
-                        ariaDesc="Storage capacity"
-                        ariaTitle="Bullet chart example"
-                        comparativeWarningMeasureData={[{ name: 'Warning', y: 50 }]}
-                        constrainToVisibleArea
-                        height={150}
-                        labels={({ datum }) => `${datum.name}: ${datum.y}`}
-                        maxDomain={{ y: 100 }}
-                        name="chart1"
-                        primarySegmentedMeasureData={[{ name: 'Measure', y: 60 }]}
-                        qualitativeRangeData={[{ name: 'Range', y: 50 }, { name: 'Range', y: 75 }]}
-                        width={600}
-                      />
-                  <Flex spaceItems={{ default: 'columnGapSm' }} justifyContent={{ default: 'justifyContentCenter' }}>
-                    <FlexItem>
-                      <Button>Approve</Button>
-                    </FlexItem>
-                    <FlexItem>
-                      <Button variant="tertiary">Decline</Button>
-                    </FlexItem>
-                  </Flex>
-                    </CardBody>
-                  </Card>
-                )}
+            </GridItem>
+            <GridItem span={4}>
+              {currentSection === 3 && (
+                <Card isRounded>
+                  <CardHeader>Rating Score - 60%</CardHeader>
+                  <CardBody>
+                    <ChartBullet
+                      ariaDesc="Storage capacity"
+                      ariaTitle="Bullet chart example"
+                      comparativeWarningMeasureData={[{ name: 'Warning', y: 50 }]}
+                      constrainToVisibleArea
+                      height={150}
+                      labels={({ datum }) => `${datum.name}: ${datum.y}`}
+                      maxDomain={{ y: 100 }}
+                      name="chart1"
+                      primarySegmentedMeasureData={[{ name: 'Measure', y: 60 }]}
+                      qualitativeRangeData={[{ name: 'Range', y: 50 }, { name: 'Range', y: 75 }]}
+                      width={600}
+                    />
+                    <Flex spaceItems={{ default: 'columnGapSm' }} justifyContent={{ default: 'justifyContentCenter' }}>
+                      <FlexItem>
+                        <Button>Approve</Button>
+                      </FlexItem>
+                      <FlexItem>
+                        <Button variant="tertiary">Decline</Button>
+                      </FlexItem>
+                    </Flex>
+                  </CardBody>
+                </Card>
+              )}
 
-                {currentSection < 3 && (
-                  <Button onClick={handleNextSection}>
-                    {currentSection === 0 && 'Show patient info'}
-                    {currentSection === 1 && 'Show guidelines'}
-                    {currentSection === 2 && 'Show insurance'}
-                  </Button>
-                )}
+              {currentSection < 3 && (
+                <Button onClick={handleNextSection}>
+                  {currentSection === 0 && 'Show patient info'}
+                  {currentSection === 1 && 'Show guidelines'}
+                  {currentSection === 2 && 'Show insurance'}
+                </Button>
+              )}
 
-                
+              <PriorAuthSummary />
+            </GridItem>
+          </Grid>
+        </PageSection>
+      </Page>;
 
-                <PriorAuthSummary />
-              </div>
-            </div>
-          </div>
-        </main>
-        <Divider /> {/* Place the divider here */}
-        <Footer /> {/* Include the Footer here */}
-      </div>
     </ThemeProvider>
   );
 };
