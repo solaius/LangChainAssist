@@ -221,11 +221,12 @@ const App = () => {
         <PageSection>
           <Grid hasGutter>
             <GridItem span={8}>
-              <ProgressStepper>
+              <ProgressStepper isCenterAligned>
                 <ProgressStep variant={currentSection > 0 ? 'success' : 'info'}>Prior Auth</ProgressStep>
                 <ProgressStep variant={currentSection > 1 ? 'success' : currentSection === 1 ? 'info' : 'pending'}>Patient data</ProgressStep>
                 <ProgressStep variant={currentSection > 2 ? 'success' : currentSection === 2 ? 'info' : 'pending'}>Guidelines</ProgressStep>
                 <ProgressStep variant={currentSection > 3 ? 'success' : currentSection === 3 ? 'info' : 'pending'}>Insurance</ProgressStep>
+                <ProgressStep variant={currentSection > 4 ? 'success' : currentSection === 4 ? 'info' : 'pending'}>Complete</ProgressStep>
               </ProgressStepper>
               <PriorAuthRequest currentSection={currentSection} />
               <PatientData currentSection={currentSection} />
