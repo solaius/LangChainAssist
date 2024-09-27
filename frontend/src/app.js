@@ -6,7 +6,7 @@ import { ThemeProvider } from './theme-context';
 import '@patternfly/react-core/dist/styles/base.css';
 // import './app.css';
 
-import { Avatar, Brand, Breadcrumb, BreadcrumbItem, Button, ButtonVariant, Card, CardHeader, CardBody, Divider, Dropdown, DropdownGroup, DropdownItem, DropdownList, Flex, FlexItem, Gallery, GalleryItem, Grid, GridItem, Masthead, MastheadBrand, MastheadContent, MastheadMain, MastheadToggle, MenuToggle, MenuToggleElement, Nav, NavItem, NavList, Page, PageSection, PageSectionVariants, PageSidebar, PageSidebarBody, PageToggleButton, ProgressStep, ProgressStepper, SkipToContent, Text, TextContent, Toolbar, ToolbarContent, ToolbarGroup, ToolbarItem, TextVariants, Label, Spinner } from '@patternfly/react-core';
+import { Avatar, Brand, Breadcrumb, BreadcrumbItem, Button, ButtonVariant, Card, CardHeader, CardBody, Divider, Dropdown, DropdownGroup, DropdownItem, DropdownList, Flex, FlexItem, Grid, GridItem, Masthead, MastheadBrand, MastheadContent, MastheadMain, MastheadToggle, MenuToggle, Nav, NavItem, NavList, Page, PageSection, PageSectionVariants, PageSidebar, PageSidebarBody, PageToggleButton, ProgressStep, ProgressStepper, SkipToContent, Text, TextContent, Toolbar, ToolbarContent, ToolbarGroup, ToolbarItem, TextVariants, Label, Spinner } from '@patternfly/react-core';
 import BarsIcon from '@patternfly/react-icons/dist/esm/icons/bars-icon';
 import BellIcon from '@patternfly/react-icons/dist/esm/icons/bell-icon';
 import CogIcon from '@patternfly/react-icons/dist/esm/icons/cog-icon';
@@ -17,8 +17,6 @@ import imgAvatar from './images/avatar.jpg';
 import InfoCircleIcon from '@patternfly/react-icons/dist/esm/icons/info-circle-icon';
 import RHCAILogo from './images/RHCAI.png';
 
-// import Header from './components/Header/header';
-// import Footer from './components/Footer/footer';
 import PriorAuthRequest from './components/PriorAuthRequest/prior_auth_request';
 import PriorAuthSummary from './components/PriorAuthSummary/prior_auth_summary';
 import PatientData from './components/PatientData/patient_data';

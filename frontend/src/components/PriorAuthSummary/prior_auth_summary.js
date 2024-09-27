@@ -1,17 +1,11 @@
 // components/PriorAuthorizationSummary/prior_authorization_summary.js
 
-import React, { useState } from 'react';
-import { Accordion, AccordionItem, AccordionContent, AccordionToggle, Flex, FlexItem, Card, CardHeader, CardBody, Text, TextVariants } from '@patternfly/react-core';
+import React from 'react';
+import { Flex, FlexItem, Card, CardHeader, CardBody, Text, TextVariants } from '@patternfly/react-core';
 // import './prior_auth_summary.css';
 
 
 const PriorAuthorizationSummary = () => {
-  const [isExpanded, setIsExpanded] = useState(true); // State for Accordion toggle
-
-  const onToggle = () => {
-    setIsExpanded(!isExpanded);
-  };
-
   return (
     <>
       <Card isRounded style={{  }}>
