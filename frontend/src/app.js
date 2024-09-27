@@ -15,7 +15,7 @@ import QuestionCircleIcon from '@patternfly/react-icons/dist/esm/icons/question-
 import EllipsisVIcon from '@patternfly/react-icons/dist/esm/icons/ellipsis-v-icon';
 import imgAvatar from './images/avatar.jpg';
 import InfoCircleIcon from '@patternfly/react-icons/dist/esm/icons/info-circle-icon';
-import ArrowRightIcon from '@patternfly/react-icons/dist/esm/icons/arrow-right-icon';
+import RHCAILogo from './images/RHCAI.png';
 
 // import Header from './components/Header/header';
 // import Footer from './components/Footer/footer';
@@ -190,7 +190,16 @@ const App = () => {
   </Nav>;
 
   const sidebar = <PageSidebar>
-    <PageSidebarBody>{pageNav}</PageSidebarBody>
+    <PageSidebarBody style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+      {pageNav}
+      <div style={{ display: 'flex', alignItems: 'center', gap: 16, padding: 16 }}>
+        <img src={RHCAILogo} alt="" style={{ width: 40, height: 40 }} />
+        <div style={{ display: 'flex', flexDirection: 'column', fontFamily: 'Red Hat Display', fontSize: 14 }}>
+          <span style={{ color: '#d2d2d2' }}>Built with</span>
+          <span style={{ fontWeight: 500 }}>Red Hat Composer AI</span>
+        </div>
+      </div>
+    </PageSidebarBody>
   </PageSidebar>;
 
   const mainContainerId = 'main-content';
