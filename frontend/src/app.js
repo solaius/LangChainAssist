@@ -1,19 +1,19 @@
 // src/app.js
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { ThemeProvider } from './theme-context';
 
 import '@patternfly/react-core/dist/styles/base.css';
 // import './app.css';
 
-import { Avatar, Brand, Breadcrumb, BreadcrumbItem, Button, ButtonVariant, Card, CardHeader, CardBody, Divider, Dropdown, DropdownGroup, DropdownItem, DropdownList, Flex, FlexItem, Grid, GridItem, Masthead, MastheadBrand, MastheadContent, MastheadMain, MastheadToggle, MenuToggle, Nav, NavItem, NavList, Page, PageSection, PageSectionVariants, PageSidebar, PageSidebarBody, PageToggleButton, ProgressStep, ProgressStepper, SkipToContent, Text, TextContent, Toolbar, ToolbarContent, ToolbarGroup, ToolbarItem, TextVariants, Label, Spinner } from '@patternfly/react-core';
+import { Avatar, Brand, Breadcrumb, BreadcrumbItem, Button, ButtonVariant, Card, CardBody, Divider, Dropdown, DropdownGroup, DropdownItem, DropdownList, Flex, FlexItem, Grid, GridItem, Masthead, MastheadBrand, MastheadContent, MastheadMain, MastheadToggle, MenuToggle, Nav, NavItem, NavList, Page, PageSection, PageSectionVariants, PageSidebar, PageSidebarBody, PageToggleButton, ProgressStep, ProgressStepper, SkipToContent, Text, TextContent, Toolbar, ToolbarContent, ToolbarGroup, ToolbarItem, Label } from '@patternfly/react-core';
 import BarsIcon from '@patternfly/react-icons/dist/esm/icons/bars-icon';
 import BellIcon from '@patternfly/react-icons/dist/esm/icons/bell-icon';
 import CogIcon from '@patternfly/react-icons/dist/esm/icons/cog-icon';
 import HelpIcon from '@patternfly/react-icons/dist/esm/icons/help-icon';
 import QuestionCircleIcon from '@patternfly/react-icons/dist/esm/icons/question-circle-icon';
 import EllipsisVIcon from '@patternfly/react-icons/dist/esm/icons/ellipsis-v-icon';
-import imgAvatar from './images/avatar.jpg';
+import imgAvatar from './images/avatar.png';
 import InfoCircleIcon from '@patternfly/react-icons/dist/esm/icons/info-circle-icon';
 import RHCAILogo from './images/RHCAI.png';
 
@@ -22,7 +22,6 @@ import PriorAuthSummary from './components/PriorAuthSummary/prior_auth_summary';
 import PatientData from './components/PatientData/patient_data';
 import ClinicalPracticeGuidelines from './components/ClinicalPracticeGuidelines/clinical_practice_guidelines';
 import PolicyInfo from './components/PolicyInfo/policy_info';
-import { ChartBullet } from '@patternfly/react-charts';
 
 import logo from './images/rh_insurance.png';
 
@@ -31,7 +30,7 @@ const App = () => {
   const [currentSection, setCurrentSection] = useState(0);
 
   const handleNextSection = () => {
-    if (currentSection < 3) {
+    if (currentSection < 4) {
       setCurrentSection((prevSection) => (prevSection + 1))
     }
   }
@@ -144,7 +143,7 @@ const App = () => {
         <Dropdown isOpen={isDropdownOpen} onSelect={onDropdownSelect} onOpenChange={isOpen => setIsDropdownOpen(isOpen)} popperProps={{
           position: 'right'
         }} toggle={toggleRef => <MenuToggle ref={toggleRef} onClick={onDropdownToggle} isFullHeight isExpanded={isDropdownOpen} icon={<Avatar src={imgAvatar} alt="" />}>
-          Jeanette Lawson
+          Dean Peterson
         </MenuToggle>}>
           <DropdownList>{userDropdownItems}</DropdownList>
         </Dropdown>
@@ -204,20 +203,6 @@ const App = () => {
 
   const pageSkipToContent = <SkipToContent href={`#${mainContainerId}`}>Skip to content</SkipToContent>;
 
-  const [isProcessing, setIsProcessing] = useState(true)
-
-  useEffect(() => {
-    if (currentSection === 3) {
-      setIsProcessing(true)
-
-      const timer = setTimeout(() => {
-        setIsProcessing(false)
-      }, 3000)
-
-      return () => clearTimeout(timer)
-    }
-  }, [currentSection])
-
   return (
     <ThemeProvider>
       <Page
@@ -262,34 +247,30 @@ const App = () => {
                     <ProgressStep variant={currentSection > 1 ? 'success' : currentSection === 1 ? 'info' : 'pending'}>Patient Data</ProgressStep>
                     <ProgressStep variant={currentSection > 2 ? 'success' : currentSection === 2 ? 'info' : 'pending'}>Guidelines</ProgressStep>
                     <ProgressStep variant={currentSection > 3 ? 'success' : currentSection === 3 ? 'info' : 'pending'}>Insurance</ProgressStep>
-                    <ProgressStep variant={currentSection > 4 ? 'success' : currentSection === 4 ? 'info' : 'pending'}>Complete</ProgressStep>
+                    <ProgressStep variant={currentSection > 4 ? 'success' : currentSection === 4 ? 'info' : 'pending'}>Claim Summary</ProgressStep>
                   </ProgressStepper>
                 </GridItem>
                 <GridItem span={2} style={{ alignSelf: 'center', justifySelf: 'end' }}>
                   <Button variant="secondary" style={{ marginRight: 8 }} onClick={handlePrevSection} isDisabled={currentSection === 0}>Prev</Button>
-                  <Button onClick={handleNextSection} isDisabled={currentSection === 3}>
-                    {/* {currentSection === 0 && 'Review Patient Data'}
-                    {currentSection === 1 && 'Review Guidelines'}
-                    {currentSection === 2 && 'Review Insurance'} */}
-                    Next
-                  </Button>
+                  <Button onClick={handleNextSection} isDisabled={currentSection === 4}>Next</Button>
                 </GridItem>
               </Grid>
 
 
 
             </GridItem>
-            <GridItem span={8}>
+            <GridItem span={8} offset={2}>
               <Card isRounded>
                 <CardBody style={{ paddingBlockStart: '1.5rem' }}>
-                  <PriorAuthRequest currentSection={currentSection} />
-                  <PatientData currentSection={currentSection} />
-                  <ClinicalPracticeGuidelines currentSection={currentSection} />
-                  <PolicyInfo currentSection={currentSection} />
+                  {currentSection === 0 && <PriorAuthRequest currentSection={currentSection} />}
+                  {currentSection === 1 && <PatientData currentSection={currentSection} />}
+                  {currentSection === 2 && <ClinicalPracticeGuidelines currentSection={currentSection} />}
+                  {currentSection === 3 && <PolicyInfo currentSection={currentSection} />}
+                  {currentSection === 4 && <PriorAuthSummary currentSection={currentSection} />}
                 </CardBody>
               </Card>
             </GridItem>
-            <GridItem span={4}>
+            {/* <GridItem span={4}>
               <Flex style={{ position: 'sticky', top: '135px', gap: 24 }}>
                 {currentSection === 3 && (
                   <FlexItem style={{ width: '100%', margin: 0 }}>
@@ -332,25 +313,11 @@ const App = () => {
                     </Card>
                   </FlexItem>
                 )}
-                {/* {currentSection < 3 && (
-                  <FlexItem style={{ width: '100%', margin: 0 }}>
-                    <Card isRounded style={{ height: '101px' }}>
-                      <CardBody style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                        <Button variant="tertiary" isDisabled>Cancel</Button>
-                        <Button icon={<ArrowRightIcon />} iconPosition='end' onClick={handleNextSection}>
-                          {currentSection === 0 && 'Review Patient Data'}
-                          {currentSection === 1 && 'Review Guidelines'}
-                          {currentSection === 2 && 'Review Insurance'}
-                        </Button>
-                      </CardBody>
-                    </Card>
-                  </FlexItem>
-                )} */}
                 <FlexItem>
                   <PriorAuthSummary />
                 </FlexItem>
               </Flex>
-            </GridItem>
+            </GridItem> */}
           </Grid>
         </PageSection>
       </Page>;
