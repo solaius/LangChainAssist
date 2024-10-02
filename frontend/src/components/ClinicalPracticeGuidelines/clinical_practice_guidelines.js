@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { Text, TextVariants, List, ListItem, Spinner, Popover, Button } from '@patternfly/react-core';
 import InfoCircleIcon from '@patternfly/react-icons/dist/esm/icons/info-circle-icon';
-import LogoNeo4J from '../../images/neo4j-logo_color.png'
+import LogoWeaviate from '../../images/weaviate-logo.png'
 // import './clinical_practice_guidelines.css';
 
 const ClinicalPracticeGuidelines = ({ currentSection }) => {
@@ -29,8 +29,8 @@ const ClinicalPracticeGuidelines = ({ currentSection }) => {
         <Popover
           bodyContent={
             <div>
-              <div><img src={LogoNeo4J} alt="Neo4J logo" style={{ height: 24 }} / ></div>
-              <div><strong>Stored in Neo4j Graph Database</strong></div>
+              <div><img src={LogoWeaviate} alt="Weaviated logo" style={{ height: 24 }} / ></div>
+              <div><strong>Stored in Weaviate Vector Database</strong></div>
               <Text component={TextVariants.pre}>System prompt</Text>
             </div>
           }

@@ -4,11 +4,11 @@ import React, { useEffect, useState } from 'react';
 import { Flex, FlexItem, Card, CardHeader, CardBody, Text, TextVariants, Spinner, Button, Grid, GridItem, Divider, Popover } from '@patternfly/react-core';
 import { ChartBullet } from '@patternfly/react-charts';
 import InfoCircleIcon from '@patternfly/react-icons/dist/esm/icons/info-circle-icon';
-import LogoNeo4J from '../../images/neo4j-logo_color.png'
+import ComposerAIIcon from '../../images/RHCAI.png'
 // import './prior_auth_summary.css';
 
 
-const PriorAuthorizationSummary = ({ currentSection }) => {
+const PriorAuthorizationSummary = ({ currentSection, setCurrentSection }) => {
 
   const [isProcessing, setIsProcessing] = useState(true)
 
@@ -32,8 +32,8 @@ const PriorAuthorizationSummary = ({ currentSection }) => {
           <Popover
             bodyContent={
               <div>
-                <div><img src={LogoNeo4J} alt="Neo4J logo" style={{ height: 24 }} /></div>
-                <div><strong>Stored in Neo4j Graph Database</strong></div>
+                <div><img src={ComposerAIIcon} alt="Composer AI icon" style={{ height: 24 }} /></div>
+                <div><strong>Created by Composer AI Assistant</strong></div>
                 <Text component={TextVariants.pre}>System prompt</Text>
               </div>
             }
@@ -97,7 +97,7 @@ const PriorAuthorizationSummary = ({ currentSection }) => {
 
             <Flex spaceItems={{ default: 'columnGapSm' }} justifyContent={{ default: 'justifyContentCenter' }}>
               <FlexItem>
-                <Button>Approve claim</Button>
+                <Button onClick={() => setCurrentSection(5)}>Approve claim</Button>
               </FlexItem>
               <FlexItem>
                 <Button variant="secondary" isDanger>Decline claim</Button>
