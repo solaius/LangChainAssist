@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import { ThemeProvider } from './theme-context';
-
 import '@patternfly/react-core/dist/styles/base.css';
 // import './app.css';
 
@@ -24,6 +23,7 @@ import ClinicalPracticeGuidelines from './components/ClinicalPracticeGuidelines/
 import PolicyInfo from './components/PolicyInfo/policy_info';
 
 import logo from './images/rh_insurance.png';
+import ClaimApproved from './components/ClaimApproved/ClaimApproved';
 
 const App = () => {
 
@@ -68,6 +68,7 @@ const App = () => {
   };
   const dashboardBreadcrumb = <Breadcrumb>
     <BreadcrumbItem to="#">Policies</BreadcrumbItem>
+    <BreadcrumbItem to="#">Claims</BreadcrumbItem>
     <BreadcrumbItem to="#" isActive>
       CL-2467802
     </BreadcrumbItem>
@@ -236,10 +237,9 @@ const App = () => {
         <PageSection>
           <Grid hasGutter style={{ gap: 24 }}>
             <GridItem span={12}>
-
               <Grid>
                 <GridItem span={2} style={{ alignSelf: 'center' }}>
-                  <Button variant="tertiary">Cancel</Button>
+                  <Button variant="tertiary" isDisabled={currentSection === 5}>Cancel</Button>
                 </GridItem>
                 <GridItem span={8}>
                   <ProgressStepper isCenterAligned>
@@ -251,13 +251,10 @@ const App = () => {
                   </ProgressStepper>
                 </GridItem>
                 <GridItem span={2} style={{ alignSelf: 'center', justifySelf: 'end' }}>
-                  <Button variant="secondary" style={{ marginRight: 8 }} onClick={handlePrevSection} isDisabled={currentSection === 0}>Prev</Button>
-                  <Button onClick={handleNextSection} isDisabled={currentSection === 4}>Next</Button>
+                  <Button variant="secondary" style={{ marginRight: 8 }} onClick={handlePrevSection} isDisabled={currentSection === 0 || currentSection > 4}>Prev</Button>
+                  <Button onClick={handleNextSection} isDisabled={currentSection >= 4}>Next</Button>
                 </GridItem>
               </Grid>
-
-
-
             </GridItem>
             <GridItem span={8} offset={2}>
               <Card isRounded>
@@ -266,58 +263,11 @@ const App = () => {
                   {currentSection === 1 && <PatientData currentSection={currentSection} />}
                   {currentSection === 2 && <ClinicalPracticeGuidelines currentSection={currentSection} />}
                   {currentSection === 3 && <PolicyInfo currentSection={currentSection} />}
-                  {currentSection === 4 && <PriorAuthSummary currentSection={currentSection} />}
+                  {currentSection === 4 && <PriorAuthSummary currentSection={currentSection} setCurrentSection={setCurrentSection} />}
+                  {currentSection === 5 && <ClaimApproved currentSection={currentSection} />}
                 </CardBody>
               </Card>
             </GridItem>
-            {/* <GridItem span={4}>
-              <Flex style={{ position: 'sticky', top: '135px', gap: 24 }}>
-                {currentSection === 3 && (
-                  <FlexItem style={{ width: '100%', margin: 0 }}>
-                    <Card isRounded>
-                      <CardHeader>
-                        <Text component={TextVariants.h2} style={{ fontFamily: 'Red Hat Display', fontWeight: 600 }}>Rating Score - 60%</Text>
-                      </CardHeader>
-                      <CardBody>
-                        {isProcessing && (
-                          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                            <Spinner />
-                          </div>
-                        )}
-                        {!isProcessing && (
-                          <>
-                            <ChartBullet
-                              ariaDesc="Storage capacity"
-                              ariaTitle="Bullet chart example"
-                              comparativeWarningMeasureData={[{ name: 'Warning', y: 50 }]}
-                              constrainToVisibleArea
-                              height={150}
-                              labels={({ datum }) => `${datum.name}: ${datum.y}`}
-                              maxDomain={{ y: 100 }}
-                              name="chart1"
-                              primarySegmentedMeasureData={[{ name: 'Measure', y: 60 }]}
-                              qualitativeRangeData={[{ name: 'Range', y: 50 }, { name: 'Range', y: 75 }]}
-                              width={600}
-                            />
-                            <Flex spaceItems={{ default: 'columnGapSm' }} justifyContent={{ default: 'justifyContentCenter' }}>
-                              <FlexItem>
-                                <Button>Approve</Button>
-                              </FlexItem>
-                              <FlexItem>
-                                <Button variant="secondary" isDanger>Decline</Button>
-                              </FlexItem>
-                            </Flex>
-                          </>
-                        )}
-                      </CardBody>
-                    </Card>
-                  </FlexItem>
-                )}
-                <FlexItem>
-                  <PriorAuthSummary />
-                </FlexItem>
-              </Flex>
-            </GridItem> */}
           </Grid>
         </PageSection>
       </Page>;

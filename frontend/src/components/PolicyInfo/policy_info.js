@@ -6,7 +6,7 @@ import CoPay from './CoPay/co_pay';
 import PolicyCoverage from './PolicyCoverage/policy_coverage';
 import { ExpandableSection, Grid, GridItem, Text, TextVariants, Spinner, Popover, Button } from '@patternfly/react-core';
 import InfoCircleIcon from '@patternfly/react-icons/dist/esm/icons/info-circle-icon';
-import LogoNeo4J from '../../images/neo4j-logo_color.png'
+import PDFIcon from '../../images/pdf-icon.svg'
 // import './policy_info.css';
 
 const PolicyInfo = ({ currentSection }) => {
@@ -37,8 +37,8 @@ const PolicyInfo = ({ currentSection }) => {
         <Popover
           bodyContent={
             <div>
-              <div><img src={LogoNeo4J} alt="Neo4J logo" style={{ height: 24 }} / ></div>
-              <div><strong>Stored in Neo4j Graph Database</strong></div>
+              <div><img src={PDFIcon} alt="PDF icon" style={{ height: 24 }} / ></div>
+              <div><strong>Data retrieved from Policy PDF</strong></div>
               <Text component={TextVariants.pre}>System prompt</Text>
             </div>
           }

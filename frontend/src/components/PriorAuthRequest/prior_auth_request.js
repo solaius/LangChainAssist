@@ -1,11 +1,8 @@
 // components/PriorAuthRequest/prior_auth_request.js
 
 import React, { useState, useEffect } from 'react';
-import { TextVariants, Text, Grid, GridItem, FlexItem, Flex, DescriptionList, DescriptionListGroup, DescriptionListTerm, DescriptionListDescription, List, ListItem, Spinner, Button, Popover } from '@patternfly/react-core';
+import { TextVariants, Text, Grid, GridItem, FlexItem, Flex, DescriptionList, DescriptionListGroup, DescriptionListTerm, DescriptionListDescription, List, ListItem, Spinner } from '@patternfly/react-core';
 // import './prior_auth_request.css';
-
-import InfoCircleIcon from '@patternfly/react-icons/dist/esm/icons/info-circle-icon';
-import LogoNeo4J from '../../images/neo4j-logo_color.png'
 
 const PriorAuthRequest = ({ currentSection }) => {
 
@@ -24,18 +21,7 @@ const PriorAuthRequest = ({ currentSection }) => {
   return (
     <div>
       <Text component={TextVariants.h1} style={{ display: 'flex', alignItems: 'center', marginBottom: 24, fontFamily: 'Red Hat Display', fontWeight: 600, fontSize: 24 }}>
-        Prior Authorization Summary
-        <Popover
-          bodyContent={
-            <div>
-              <div><img src={LogoNeo4J} alt="Neo4J logo" style={{ height: 24 }} / ></div>
-              <div><strong>Stored in Neo4j Graph Database</strong></div>
-              <Text component={TextVariants.pre}>System prompt</Text>
-            </div>
-          }
-        >
-          <Button variant="plain"><InfoCircleIcon /></Button>
-        </Popover>
+        Prior Authorization Request
       </Text>
 
       {isProcessing && (
@@ -55,7 +41,7 @@ const PriorAuthRequest = ({ currentSection }) => {
                   <DescriptionList>
                     <DescriptionListGroup>
                       <DescriptionListTerm>Name</DescriptionListTerm>
-                      <DescriptionListDescription>Sarah Burnside</DescriptionListDescription>
+                      <DescriptionListDescription><a href="https://www.google.com/">Sarah Burnside</a></DescriptionListDescription>
                     </DescriptionListGroup>
                     <DescriptionListGroup>
                       <DescriptionListTerm>Date of Birth</DescriptionListTerm>
@@ -63,7 +49,7 @@ const PriorAuthRequest = ({ currentSection }) => {
                     </DescriptionListGroup>
                     <DescriptionListGroup>
                       <DescriptionListTerm>Insurance</DescriptionListTerm>
-                      <DescriptionListDescription>Anthem Blue Cross</DescriptionListDescription>
+                      <DescriptionListDescription><a href="https://www.google.com/">Anthem Blue Cross</a></DescriptionListDescription>
                     </DescriptionListGroup>
                   </DescriptionList>
                 </GridItem>
